@@ -9,7 +9,8 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview --port 4173",
     "server": "node server/index.mjs",
-    "test:engine": "npx tsx src/engine/__tests__/verify.ts"
+    "test:engine": "npx tsx src/engine/__tests__/verify.ts",
+    "deploy:pages": "npm run build && rm -rf /tmp/quantblock-gh-pages && mkdir -p /tmp/quantblock-gh-pages && cp -R dist/. /tmp/quantblock-gh-pages/ && touch /tmp/quantblock-gh-pages/.nojekyll && cd /tmp/quantblock-gh-pages && git init -b gh-pages && git add -A && git commit -m 'deploy: update QuantBlock' && git push -f https://github.com/ryuuto1r-bot/quantblock.git gh-pages && rm -rf /tmp/quantblock-gh-pages"
   },
   "dependencies": {
     "@xyflow/react": "^12.6.0",
