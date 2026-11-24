@@ -28,25 +28,25 @@ export const TradingChart: React.FC<TradingChartProps> = ({ result }) => {
 
     const chart: IChartApi = createChart(mainEl, {
       layout: {
-        background: { type: ColorType.Solid, color: '#0a101e' },
+        background: { type: ColorType.Solid, color: '#040916' },
         textColor: '#94a3b8',
         fontFamily: "'JetBrains Mono', monospace",
         fontSize: 11,
       },
       grid: {
-        vertLines: { color: 'rgba(148, 163, 184, 0.07)' },
-        horzLines: { color: 'rgba(148, 163, 184, 0.07)' },
+        vertLines: { color: 'rgba(34, 211, 238, 0.06)' },
+        horzLines: { color: 'rgba(34, 211, 238, 0.06)' },
       },
       crosshair: {
         mode: CrosshairMode.Normal,
-        vertLine: { color: '#6366f1', labelBackgroundColor: '#4f46e5' },
-        horzLine: { color: '#6366f1', labelBackgroundColor: '#4f46e5' },
+        vertLine: { color: '#22d3ee', labelBackgroundColor: '#0891b2' },
+        horzLine: { color: '#22d3ee', labelBackgroundColor: '#0891b2' },
       },
       rightPriceScale: {
-        borderColor: 'rgba(148, 163, 184, 0.16)',
+        borderColor: 'rgba(34, 211, 238, 0.16)',
       },
       timeScale: {
-        borderColor: 'rgba(148, 163, 184, 0.16)',
+        borderColor: 'rgba(34, 211, 238, 0.16)',
         timeVisible: result.timeframe !== '1D',
       },
       width: mainEl.clientWidth,
@@ -54,11 +54,11 @@ export const TradingChart: React.FC<TradingChartProps> = ({ result }) => {
     });
 
     const candleSeries = chart.addCandlestickSeries({
-      upColor: '#10b981',
-      downColor: '#f43f5e',
+      upColor: '#00e5a8',
+      downColor: '#ff3b6b',
       borderVisible: false,
-      wickUpColor: '#10b981',
-      wickDownColor: '#f43f5e',
+      wickUpColor: '#00e5a8',
+      wickDownColor: '#ff3b6b',
     });
 
     candleSeries.setData(
@@ -166,20 +166,20 @@ export const TradingChart: React.FC<TradingChartProps> = ({ result }) => {
       const oscEl = oscContainerRef.current;
       oscChart = createChart(oscEl, {
         layout: {
-          background: { type: ColorType.Solid, color: '#0a101e' },
+          background: { type: ColorType.Solid, color: '#040916' },
           textColor: '#94a3b8',
           fontFamily: "'JetBrains Mono', monospace",
           fontSize: 10,
         },
         grid: {
-          vertLines: { color: 'rgba(148, 163, 184, 0.06)' },
-          horzLines: { color: 'rgba(148, 163, 184, 0.06)' },
+          vertLines: { color: 'rgba(34, 211, 238, 0.05)' },
+          horzLines: { color: 'rgba(34, 211, 238, 0.05)' },
         },
         rightPriceScale: {
-          borderColor: 'rgba(148, 163, 184, 0.16)',
+          borderColor: 'rgba(34, 211, 238, 0.16)',
         },
         timeScale: {
-          borderColor: 'rgba(148, 163, 184, 0.16)',
+          borderColor: 'rgba(34, 211, 238, 0.16)',
           visible: false,
         },
         width: oscEl.clientWidth,
@@ -233,32 +233,32 @@ export const TradingChart: React.FC<TradingChartProps> = ({ result }) => {
   }, [result, mainOverlays, oscOverlays]);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-slate-800/90 bg-[#0a101e]">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 px-4 py-2.5">
+    <div className="hud-panel overflow-hidden rounded-2xl">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-cyan-500/15 bg-[#050b18]/80 px-4 py-2.5">
         <div className="flex flex-wrap items-center gap-3 text-xs">
-          <span className="font-mono font-bold text-white">
+          <span className="font-display font-bold tracking-wider text-cyan-200">
             {result.symbol} · {result.timeframe}
           </span>
-          <span className="text-slate-500">|</span>
-          <span className="inline-flex items-center gap-1 text-[11px] text-emerald-400">
-            <span className="h-2 w-2 rounded-full bg-emerald-400" /> BUYシグナル
+          <span className="text-slate-700">|</span>
+          <span className="inline-flex items-center gap-1 text-[11px] text-emerald-300">
+            <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" /> BUY
           </span>
-          <span className="inline-flex items-center gap-1 text-[11px] text-sky-400">
-            <span className="h-2 w-2 rounded-full bg-sky-400" /> 利確/勝決済
+          <span className="inline-flex items-center gap-1 text-[11px] text-cyan-300">
+            <span className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]" /> 利確/勝決済
           </span>
-          <span className="inline-flex items-center gap-1 text-[11px] text-rose-400">
-            <span className="h-2 w-2 rounded-full bg-rose-400" /> 損切り/負決済
+          <span className="inline-flex items-center gap-1 text-[11px] text-rose-300">
+            <span className="h-2 w-2 rounded-full bg-rose-400 shadow-[0_0_8px_#fb7185]" /> 損切り/負決済
           </span>
         </div>
         <div className="flex flex-wrap items-center gap-2.5">
           {result.overlays.map((ov) => (
             <span
               key={ov.id}
-              className="inline-flex items-center gap-1.5 font-mono text-[11px] text-slate-300"
+              className="inline-flex items-center gap-1.5 rounded-md border border-slate-800/80 bg-slate-950/70 px-2 py-0.5 font-mono text-[10px] text-slate-200"
             >
               <span
-                className="h-2 w-3 rounded-sm"
-                style={{ backgroundColor: ov.color }}
+                className="h-2 w-2.5 rounded-sm"
+                style={{ backgroundColor: ov.color, boxShadow: `0 0 8px ${ov.color}` }}
               />
               {ov.label}
             </span>
@@ -269,9 +269,9 @@ export const TradingChart: React.FC<TradingChartProps> = ({ result }) => {
       <div ref={mainContainerRef} className="w-full" />
 
       {oscOverlays.length > 0 && (
-        <div className="border-t border-slate-800/80">
-          <div className="flex items-center gap-2 bg-[#080d19] px-4 py-1 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-            オシレーター・サブチャート ({oscOverlays.map((o) => o.label).join(' / ')})
+        <div className="border-t border-cyan-500/15">
+          <div className="flex items-center gap-2 bg-[#040814] px-4 py-1 font-mono text-[10px] font-semibold uppercase tracking-widest text-cyan-300/75">
+            OSCILLATOR TELEMETRY ({oscOverlays.map((o) => o.label).join(' / ')})
           </div>
           <div ref={oscContainerRef} className="w-full" />
         </div>

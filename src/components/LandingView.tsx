@@ -19,19 +19,19 @@ export const LandingView: React.FC<LandingViewProps> = ({ onLaunchApp, onOpenPri
   return (
     <div className="mx-auto max-w-6xl space-y-16 px-4 py-10 md:py-16">
       {/* ヒーロー */}
-      <section className="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-[#0e172a] via-[#090f1d] to-[#0b1024] p-8 md:p-14">
-        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-indigo-600/20 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 left-12 h-64 w-64 rounded-full bg-emerald-500/15 blur-3xl" />
+      <section className="hud-panel relative overflow-hidden rounded-3xl p-8 md:p-14">
+        <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-cyan-500/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 left-12 h-72 w-72 rounded-full bg-violet-600/20 blur-3xl" />
 
         <div className="relative z-10 max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3.5 py-1 text-xs font-semibold text-indigo-300">
-            <Sparkles className="h-3.5 w-3.5" />
-            仮想通貨 · FX · 米国株 · 先物対応 ノーコード・クオンツSaaS
+          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/35 bg-cyan-500/10 px-3.5 py-1 font-mono text-xs font-semibold text-cyan-200">
+            <Sparkles className="h-3.5 w-3.5 text-cyan-300" />
+            NEXT-GEN NO-CODE QUANT TERMINAL · 15m / 30m LIVE
           </div>
 
-          <h1 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-white md:text-5xl">
+          <h1 className="font-display mt-5 text-3xl font-extrabold leading-tight tracking-tight text-white md:text-5xl">
             コードを書かずに、
-            <span className="bg-gradient-to-r from-emerald-400 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
+            <span className="holo-text">
               勝てるトレード戦略
             </span>
             を3分で検証・自動化。

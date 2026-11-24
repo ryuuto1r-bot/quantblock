@@ -430,53 +430,55 @@ export default function App() {
   const { metrics } = backtestResult;
 
   return (
-    <div className="min-h-screen bg-[#070b14] text-slate-100">
-      {/* ヘッダー */}
-      <header className="sticky top-0 z-40 border-b border-slate-800/90 bg-[#070b14]/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-[1480px] flex-wrap items-center justify-between gap-3 px-4 py-3">
+    <div className="min-h-screen text-slate-100">
+      {/* 次世代クオンツHUDトップバー */}
+      <header className="sticky top-0 z-40 border-b border-cyan-500/15 bg-[#040814]/80 backdrop-blur-xl">
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
+        <div className="mx-auto flex max-w-[1480px] flex-wrap items-center justify-between gap-3 px-4 py-2.5">
           <div className="flex items-center gap-3">
             <button
               type="button"
               onClick={() => setPage('workspace')}
-              className="flex items-center gap-2.5 text-left"
+              className="group flex items-center gap-2.5 text-left"
             >
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 via-sky-500 to-emerald-400 shadow-lg shadow-indigo-950/60">
+              <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 via-indigo-500 to-violet-500 shadow-[0_0_24px_-4px_rgba(34,211,238,0.65)] transition group-hover:scale-105">
                 <Blocks className="h-5 w-5 text-slate-950" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-base font-extrabold tracking-tight text-white">
-                    QuantBlock
+                  <span className="font-display text-base font-bold tracking-wider text-white">
+                    QUANT<span className="text-cyan-400">BLOCK</span>
                   </span>
-                  <span className="rounded-md bg-indigo-500/15 px-1.5 py-0.5 font-mono text-[10px] font-bold text-indigo-300">
-                    BETA
+                  <span className="inline-flex items-center gap-1 rounded-md border border-cyan-400/30 bg-cyan-500/10 px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-widest text-cyan-300">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]" />
+                    v2.0
                   </span>
                 </div>
-                <div className="text-[10px] text-slate-400">
-                  ノーコード・アルゴリズム検証＆トレードSaaS
+                <div className="font-mono text-[10px] tracking-wide text-slate-400">
+                  NO-CODE QUANT TERMINAL
                 </div>
               </div>
             </button>
 
-            <nav className="ml-4 hidden items-center gap-1 rounded-xl border border-slate-800 bg-slate-900/70 p-1 sm:flex">
+            <nav className="ml-3 hidden items-center gap-1 rounded-xl border border-cyan-500/20 bg-[#060d1c]/90 p-1 sm:flex">
               <button
                 type="button"
                 onClick={() => setPage('workspace')}
                 className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
                   page === 'workspace'
-                    ? 'bg-indigo-600 text-white'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-gradient-to-r from-cyan-500/90 to-indigo-600 text-white glow-cyan'
+                    : 'text-slate-400 hover:text-cyan-200'
                 }`}
               >
-                戦略ビルダー & 検証
+                戦略ビルダー &amp; 検証
               </button>
               <button
                 type="button"
                 onClick={() => setPage('landing')}
                 className={`inline-flex items-center gap-1 rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
                   page === 'landing'
-                    ? 'bg-indigo-600 text-white'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-gradient-to-r from-cyan-500/90 to-indigo-600 text-white glow-cyan'
+                    : 'text-slate-400 hover:text-cyan-200'
                 }`}
               >
                 <BookOpen className="h-3.5 w-3.5" />
@@ -491,15 +493,15 @@ export default function App() {
                 <button
                   type="button"
                   onClick={() => setShowShareCard(true)}
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-sky-500/40 bg-sky-500/10 px-3 py-2 text-xs font-semibold text-sky-200 transition hover:bg-sky-500/20"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-cyan-400/35 bg-cyan-500/10 px-3 py-2 text-xs font-semibold text-cyan-200 transition hover:bg-cyan-500/20 hover:shadow-[0_0_18px_-4px_rgba(34,211,238,0.55)]"
                 >
-                  <Share2 className="h-3.5 w-3.5 text-sky-400" />
+                  <Share2 className="h-3.5 w-3.5 text-cyan-300" />
                   結果をシェア
                 </button>
                 <button
                   type="button"
                   onClick={handleSaveStrategy}
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-slate-700 bg-slate-900 px-3 py-2 text-xs font-semibold text-slate-200 transition hover:border-slate-500 hover:text-white"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-slate-700/80 bg-[#081022]/90 px-3 py-2 text-xs font-semibold text-slate-200 transition hover:border-cyan-400/50 hover:text-white"
                 >
                   <Save className="h-3.5 w-3.5 text-emerald-400" />
                   戦略を保存
@@ -509,12 +511,12 @@ export default function App() {
             <button
               type="button"
               onClick={() => setShowPricing(true)}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-indigo-600 to-sky-600 px-3.5 py-2 text-xs font-bold text-white shadow-md shadow-indigo-950/60 transition hover:brightness-110"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 px-3.5 py-2 text-xs font-bold text-white glow-violet transition hover:brightness-110"
             >
               <Crown className="h-3.5 w-3.5 text-amber-300" />
               {planTier === 'free'
                 ? 'Proへアップグレード'
-                : `${planTier.toUpperCase()} プラン利用中`}
+                : `${planTier.toUpperCase()} プラン`}
             </button>
           </div>
         </div>
@@ -536,7 +538,7 @@ export default function App() {
       ) : (
         <main className="mx-auto max-w-[1480px] space-y-3.5 px-4 py-3.5">
           {/* 統一見出しバー（銘柄・時間足・戦略名を矛盾なく1つの見出しに統合） */}
-          <section className="rounded-2xl border border-slate-800/90 bg-[#0b1220] px-4 py-3">
+          <section className="hud-panel rounded-2xl px-4 py-3">
             <div className="flex flex-wrap items-center justify-between gap-2.5">
               {/* 左: 統一見出し + テンプレートを変更ドロップダウン */}
               <div className="flex flex-wrap items-center gap-2.5">
@@ -552,26 +554,26 @@ export default function App() {
                       onKeyDown={(e) => {
                         if (e.key === 'Enter' || e.key === 'Escape') setEditingName(false);
                       }}
-                      className="w-56 rounded-lg border border-indigo-400 bg-slate-950 px-2.5 py-1 text-sm font-bold text-white outline-none"
+                      className="w-56 rounded-lg border border-cyan-400 bg-[#030712] px-2.5 py-1 text-sm font-bold text-white outline-none"
                     />
                     <button
                       type="button"
                       onClick={() => setEditingName(false)}
-                      className="rounded-lg bg-indigo-600 p-1.5 text-white hover:bg-indigo-500"
+                      className="rounded-lg bg-cyan-500 p-1.5 text-slate-950 hover:bg-cyan-400"
                     >
                       <Check className="h-3.5 w-3.5" />
                     </button>
                   </div>
                 ) : (
                   <div className="flex items-center gap-1.5">
-                    <h1 className="text-base font-extrabold tracking-tight text-white sm:text-lg">
+                    <h1 className="font-display holo-text text-base font-extrabold tracking-tight sm:text-lg">
                       {unifiedHeading}
                     </h1>
                     <button
                       type="button"
                       onClick={() => setEditingName(true)}
                       title="戦略名を編集"
-                      className="rounded-md p-1 text-slate-500 transition hover:bg-slate-800 hover:text-slate-200"
+                      className="rounded-md p-1 text-slate-500 transition hover:bg-cyan-500/15 hover:text-cyan-200"
                     >
                       <Pencil className="h-3.5 w-3.5" />
                     </button>
@@ -583,9 +585,9 @@ export default function App() {
                   <button
                     type="button"
                     onClick={() => setShowTemplateMenu((v) => !v)}
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-slate-700/80 bg-slate-900/90 px-3 py-1.5 text-xs font-semibold text-slate-200 transition hover:border-indigo-400/70 hover:text-white"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-cyan-500/25 bg-[#060d1c]/90 px-3 py-1.5 text-xs font-semibold text-cyan-100 transition hover:border-cyan-400/70 hover:shadow-[0_0_16px_-5px_rgba(34,211,238,0.5)]"
                   >
-                    <Sparkles className="h-3.5 w-3.5 text-indigo-400" />
+                    <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
                     テンプレートを変更
                     <ChevronDown className="h-3.5 w-3.5 text-slate-400" />
                   </button>
@@ -849,7 +851,7 @@ export default function App() {
           {/* バックテスト結果分析セクション */}
           <section className="space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <div className="inline-flex flex-wrap items-center gap-1.5 rounded-2xl border border-slate-800 bg-[#0b1220] p-1.5">
+              <div className="hud-panel inline-flex flex-wrap items-center gap-1.5 rounded-2xl p-1.5">
                 {[
                   { id: 'chart', label: 'チャート & シグナル', icon: LineChart },
                   { id: 'analytics', label: '資産曲線 & 月次分析', icon: BarChart2 },
@@ -866,8 +868,8 @@ export default function App() {
                       onClick={() => setAnalysisTab(tab.id as AnalysisTab)}
                       className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-xs font-semibold transition ${
                         active
-                          ? 'bg-indigo-600 text-white shadow-md shadow-indigo-950/60'
-                          : 'text-slate-400 hover:bg-slate-900 hover:text-slate-200'
+                          ? 'bg-gradient-to-r from-cyan-500/90 to-indigo-600 text-white glow-cyan'
+                          : 'text-slate-400 hover:bg-cyan-500/10 hover:text-cyan-100'
                       }`}
                     >
                       <Icon className="h-3.5 w-3.5" />

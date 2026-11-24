@@ -170,8 +170,8 @@ export const QuantLabPanel: React.FC<QuantLabPanelProps> = ({
   ];
 
   return (
-    <div className="rounded-2xl border border-slate-800/90 bg-[#0b1220] p-4">
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
+    <div className="hud-panel rounded-2xl p-4">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-cyan-500/15 pb-3">
         <div className="flex flex-wrap items-center gap-1.5">
           {tabs.map((t) => {
             const Icon = t.icon;
@@ -183,8 +183,8 @@ export const QuantLabPanel: React.FC<QuantLabPanelProps> = ({
                 onClick={() => setActiveTab(t.id)}
                 className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-semibold transition ${
                   active
-                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-950/60'
-                    : 'bg-slate-900/70 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
+                    ? 'bg-gradient-to-r from-cyan-500/90 to-indigo-600 text-white glow-cyan'
+                    : 'border border-cyan-500/10 bg-[#050b18]/80 text-slate-400 hover:border-cyan-400/35 hover:text-cyan-100'
                 }`}
               >
                 <Icon className="h-3.5 w-3.5" />

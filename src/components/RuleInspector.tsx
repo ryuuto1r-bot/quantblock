@@ -415,15 +415,15 @@ export const RuleInspector: React.FC<RuleInspectorProps> = ({
   };
 
   return (
-    <div className="flex h-[440px] flex-col overflow-hidden rounded-2xl border border-slate-800/90 bg-[#0c1322]">
+    <div className="hud-panel flex h-[440px] flex-col overflow-hidden rounded-2xl">
       {/* 編集結果の即時フィードバックバー（条件変更による変化をその場に表示） */}
       <div
-        className={`shrink-0 border-b px-3.5 py-2.5 ${
+        className={`shrink-0 border-b px-3.5 py-2.5 transition-colors ${
           lastChangeImpact && currentMetrics.totalTrades === 0
-            ? 'border-amber-500/40 bg-amber-950/35'
+            ? 'border-amber-400/40 bg-amber-950/35'
             : lastChangeImpact
-            ? 'border-indigo-500/35 bg-indigo-950/30'
-            : 'border-slate-800/90 bg-[#0a101d]'
+            ? 'border-cyan-400/35 bg-cyan-950/30'
+            : 'border-cyan-500/15 bg-[#050b18]/80'
         }`}
       >
         {lastChangeImpact ? (

@@ -73,7 +73,7 @@ export const PortfolioPanel: React.FC<PortfolioPanelProps> = ({
   return (
     <div className="space-y-5">
       {/* サマリーKPI */}
-      <div className="rounded-2xl border border-slate-800/90 bg-[#0b1220] p-4">
+      <div className="hud-panel rounded-2xl p-4">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
           <div>
             <h3 className="flex items-center gap-2 text-sm font-bold text-white">
@@ -175,7 +175,7 @@ export const PortfolioPanel: React.FC<PortfolioPanelProps> = ({
 
       {/* 下段: 銘柄別スクリーニング一覧 & 相関係数マトリクス */}
       <div className="grid gap-5 xl:grid-cols-12">
-        <div className="rounded-2xl border border-slate-800/90 bg-[#0b1220] p-4 xl:col-span-7">
+        <div className="hud-panel rounded-2xl p-4 xl:col-span-7">
           <h4 className="mb-3 text-sm font-bold text-white">
             銘柄別エッジ比較テーブル（クリックで分散ON/OFF・チャート切替）
           </h4>
@@ -251,7 +251,7 @@ export const PortfolioPanel: React.FC<PortfolioPanelProps> = ({
         </div>
 
         {/* 相関係数マトリクス */}
-        <div className="rounded-2xl border border-slate-800/90 bg-[#0b1220] p-4 xl:col-span-5">
+        <div className="hud-panel rounded-2xl p-4 xl:col-span-5">
           <h4 className="mb-1 text-sm font-bold text-white">戦略リターン相関係数マトリクス</h4>
           <p className="mb-3 text-[11px] text-slate-400">
             相関が低い（0に近い・マイナス）銘柄同士を組み合わせるほど、リターンを維持したまま最大ドローダウンを抑えられます。

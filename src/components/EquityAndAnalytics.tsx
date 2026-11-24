@@ -180,7 +180,7 @@ export const EquityAndAnalytics: React.FC<EquityAndAnalyticsProps> = ({ result }
           return (
             <div
               key={kpi.label}
-              className="rounded-xl border border-slate-800/90 bg-[#0c1322] p-3.5 transition hover:border-slate-700"
+              className="hud-panel rounded-xl p-3.5 transition hover:border-cyan-400/45"
             >
               <div className="flex items-center justify-between text-[11px] font-medium text-slate-400">
                 <span>{kpi.label}</span>
@@ -196,7 +196,7 @@ export const EquityAndAnalytics: React.FC<EquityAndAnalyticsProps> = ({ result }
       </div>
 
       {/* 資産曲線 & ドローダウン */}
-      <div className="rounded-2xl border border-slate-800/90 bg-[#0b1220] p-4">
+      <div className="hud-panel rounded-2xl p-4">
         <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
           <div>
             <h3 className="text-sm font-bold text-white">資産推移（Equity Curve） & ドローダウン</h3>
@@ -342,7 +342,7 @@ export const EquityAndAnalytics: React.FC<EquityAndAnalyticsProps> = ({ result }
       </div>
 
       {/* 月次リターンヒートマップ */}
-      <div className="rounded-2xl border border-slate-800/90 bg-[#0b1220] p-4">
+      <div className="hud-panel rounded-2xl p-4">
         <div className="mb-3 flex items-center justify-between">
           <div>
             <h3 className="text-sm font-bold text-white">月次リターン・ヒートマップ (%)</h3>

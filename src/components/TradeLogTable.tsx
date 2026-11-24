@@ -55,7 +55,7 @@ export const TradeLogTable: React.FC<TradeLogTableProps> = ({ result }) => {
   };
 
   return (
-    <div className="rounded-2xl border border-slate-800/90 bg-[#0b1220] p-4">
+    <div className="hud-panel rounded-2xl p-4">
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <div>
           <h3 className="text-sm font-bold text-white">

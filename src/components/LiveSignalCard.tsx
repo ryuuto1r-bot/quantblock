@@ -155,10 +155,10 @@ export const LiveSignalCard: React.FC<LiveSignalCardProps> = ({
 
   return (
     <section
-      className={`rounded-2xl border transition-all ${
+      className={`hud-panel rounded-2xl transition-all ${
         isWaiting
-          ? 'border-slate-800/90 bg-[#0b1220]'
-          : 'border-indigo-500/40 bg-gradient-to-br from-[#0e172a] via-[#0b1220] to-[#0a101d] shadow-lg shadow-indigo-950/30'
+          ? ''
+          : 'border-cyan-400/45 shadow-[0_0_32px_-8px_rgba(34,211,238,0.4)]'
       }`}
     >
       {/* 常時表示のコンパクト1行ステータスバー */}
@@ -172,7 +172,7 @@ export const LiveSignalCard: React.FC<LiveSignalCardProps> = ({
           </span>
 
           <div className="flex items-baseline gap-1.5 font-mono">
-            <span className="text-sm font-extrabold text-white tabular-nums">
+            <span className="text-sm font-extrabold tracking-tight text-cyan-50 tabular-nums">
               {formatPrice(liveSignal.latestPrice, strategy.symbol)}
             </span>
             <span
@@ -200,13 +200,16 @@ export const LiveSignalCard: React.FC<LiveSignalCardProps> = ({
             )}
           </div>
 
-          <span className="hidden text-slate-700 sm:inline">|</span>
+          <span className="hidden text-cyan-500/30 sm:inline">|</span>
 
           <span className="text-xs font-medium text-slate-200">{statusMeta.summary}</span>
 
           {dataset.source === 'live' && (
-            <span className="hidden items-center gap-1 rounded bg-emerald-500/10 px-1.5 py-0.5 font-mono text-[10px] text-emerald-300 lg:inline-flex">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            <span className="hidden items-center gap-1.5 rounded-md border border-emerald-400/25 bg-emerald-500/10 px-2 py-0.5 font-mono text-[10px] text-emerald-300 lg:inline-flex">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              </span>
               LIVE ({dataset.provider?.split(' ')[0]})
             </span>
           )}
@@ -214,13 +217,13 @@ export const LiveSignalCard: React.FC<LiveSignalCardProps> = ({
 
         {/* 右側コンパクト操作 */}
         <div className="flex flex-wrap items-center gap-1.5">
-          <div className="inline-flex rounded-lg border border-slate-800 bg-slate-950 p-0.5 text-[11px]">
+          <div className="inline-flex rounded-lg border border-cyan-500/20 bg-[#030712]/90 p-0.5 text-[11px]">
             <button
               type="button"
               onClick={() => onChangeDataSource('live')}
               className={`inline-flex items-center gap-1 rounded-md px-2 py-1 font-semibold transition ${
                 dataSourceMode === 'live'
-                  ? 'bg-emerald-600 text-white'
+                  ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold glow-emerald'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -232,7 +235,7 @@ export const LiveSignalCard: React.FC<LiveSignalCardProps> = ({
               onClick={() => onChangeDataSource('simulation')}
               className={`rounded-md px-2 py-1 font-semibold transition ${
                 dataSourceMode === 'simulation'
-                  ? 'bg-indigo-600 text-white'
+                  ? 'bg-gradient-to-r from-indigo-500 to-violet-500 text-white'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -246,10 +249,10 @@ export const LiveSignalCard: React.FC<LiveSignalCardProps> = ({
               disabled={liveLoading}
               onClick={onRefreshLive}
               title="取引所APIから最新価格を再取得"
-              className="rounded-lg border border-slate-800 bg-slate-900 p-1.5 text-slate-300 transition hover:border-emerald-500/50 hover:text-white disabled:opacity-50"
+              className="rounded-lg border border-cyan-500/20 bg-[#060d1c] p-1.5 text-slate-300 transition hover:border-cyan-400/60 hover:text-cyan-200 disabled:opacity-50"
             >
               <RefreshCw
-                className={`h-3.5 w-3.5 text-emerald-400 ${liveLoading ? 'animate-spin' : ''}`}
+                className={`h-3.5 w-3.5 text-cyan-400 ${liveLoading ? 'animate-spin' : ''}`}
               />
             </button>
           )}
@@ -258,7 +261,7 @@ export const LiveSignalCard: React.FC<LiveSignalCardProps> = ({
             <button
               type="button"
               onClick={() => setManualExpanded((v) => !v)}
-              className="inline-flex items-center gap-1 rounded-lg border border-indigo-500/40 bg-indigo-500/15 px-2.5 py-1 text-xs font-semibold text-indigo-200 transition hover:bg-indigo-500/25"
+              className="inline-flex items-center gap-1 rounded-lg border border-cyan-400/35 bg-cyan-500/10 px-2.5 py-1 text-xs font-semibold text-cyan-200 transition hover:bg-cyan-500/20 hover:shadow-[0_0_16px_-4px_rgba(34,211,238,0.5)]"
             >
               {manualExpanded ? '想定注文を閉じる' : '想定注文を見る'}
               {manualExpanded ? (
