@@ -123,7 +123,7 @@ export const PRESET_STRATEGIES: StrategySpec[] = [
   },
   {
     id: 'preset-oos-trend-rsi-eth15m',
-    name: 'ETH 15m 順張りRSI押し目・戻り売り (L/S)',
+    name: '120EMA順張り × RSI押し目・戻り売り (L/S)',
     description:
       '【実相場3,000本 OOS Grade A検証済】ETH/USDT 15分足で120EMAのトレンドに沿った押し目買い・戻り売りショートのみを厳選。高い勝率と低い最大ドローダウンを両立。',
     category: 'OOS Grade A · ETH 15m',

@@ -538,7 +538,7 @@ export default function App() {
       ) : (
         <main className="mx-auto max-w-[1480px] space-y-3.5 px-4 py-3.5">
           {/* 統一見出しバー（銘柄・時間足・戦略名を矛盾なく1つの見出しに統合） */}
-          <section className="hud-panel rounded-2xl px-4 py-3">
+          <section className="hud-panel relative z-30 rounded-2xl px-4 py-3">
             <div className="flex flex-wrap items-center justify-between gap-2.5">
               {/* 左: 統一見出し + テンプレートを変更ドロップダウン */}
               <div className="flex flex-wrap items-center gap-2.5">
