@@ -110,44 +110,44 @@ export const LandingView: React.FC<LandingViewProps> = ({ onLaunchApp, onOpenPri
               <div className="flex items-center justify-between border-b border-cyan-500/15 pb-3">
                 <div>
                   <div className="font-mono text-[10px] tracking-widest text-cyan-400">
-                    LIVE CIRCUIT PREVIEW
+                    OOS GRADE A · VERIFIED CIRCUIT
                   </div>
                   <div className="font-display mt-0.5 text-sm font-bold text-white">
-                    BTC・15分足｜VWAP＋ADX厳選
+                    BTC・30分足｜長期EMA×RSI (L/S)
                   </div>
                 </div>
                 <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2 py-0.5 font-mono text-[10px] font-bold text-emerald-300">
                   <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
-                  LIVE
+                  GRADE A
                 </span>
               </div>
 
               {/* ミニ量子回路 */}
               <div className="mt-4 space-y-2 font-mono text-[11px]">
                 <div className="flex items-center justify-between rounded-xl border border-emerald-500/30 bg-emerald-950/20 px-3 py-2">
-                  <span className="text-emerald-300">ENTRY 01</span>
-                  <span className="text-slate-100">Close &gt; VWAP</span>
+                  <span className="text-emerald-300">LONG 順張り</span>
+                  <span className="text-slate-100">Close &gt; EMA(160) &amp; RSI↗42</span>
                 </div>
-                <div className="flex items-center justify-between rounded-xl border border-emerald-500/30 bg-emerald-950/20 px-3 py-2">
-                  <span className="text-emerald-300">ENTRY 02</span>
-                  <span className="text-slate-100">EMA(9) ↗ EMA(21)</span>
+                <div className="flex items-center justify-between rounded-xl border border-purple-500/30 bg-purple-950/20 px-3 py-2">
+                  <span className="text-purple-300">SHORT 戻り売り</span>
+                  <span className="text-slate-100">Close &lt; EMA(160) &amp; RSI↘58</span>
                 </div>
                 <div className="flex items-center justify-between rounded-xl border border-cyan-500/30 bg-cyan-950/20 px-3 py-2">
-                  <span className="text-cyan-300">FILTER 03</span>
-                  <span className="text-slate-100">ADX(14) &gt; 22</span>
+                  <span className="text-cyan-300">実相場3,000本</span>
+                  <span className="text-emerald-300 font-bold">勝率 66.7% · PF 4.10</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 pt-1 text-center">
                   <div className="rounded-lg border border-rose-500/30 bg-rose-950/20 py-1.5">
                     <div className="text-[9px] text-rose-300">損切り SL</div>
-                    <div className="font-bold text-rose-200">-0.75%</div>
+                    <div className="font-bold text-rose-200">-2.5%</div>
                   </div>
                   <div className="rounded-lg border border-sky-500/30 bg-sky-950/20 py-1.5">
                     <div className="text-[9px] text-sky-300">利確 TP</div>
-                    <div className="font-bold text-sky-200">+1.90%</div>
+                    <div className="font-bold text-sky-200">+2.2%</div>
                   </div>
                   <div className="rounded-lg border border-amber-500/30 bg-amber-950/20 py-1.5">
-                    <div className="text-[9px] text-amber-300">R:R 比</div>
-                    <div className="font-bold text-amber-200">1 : 2.53</div>
+                    <div className="text-[9px] text-amber-300">最大DD</div>
+                    <div className="font-bold text-amber-200">-9.5%</div>
                   </div>
                 </div>
               </div>
